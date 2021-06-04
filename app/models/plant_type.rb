@@ -1,3 +1,3 @@
 class PlantType < ApplicationRecord
-  belongs_to :PlantGroup
+  belongs_to :plant_group
 end

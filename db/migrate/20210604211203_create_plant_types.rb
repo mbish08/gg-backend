@@ -8,7 +8,7 @@ class CreatePlantTypes < ActiveRecord::Migration[6.1]
       t.string :soil_ph
       t.text :soil_type
       t.text :misc_info
-      t.belongs_to :PlantGroup, null: false, foreign_key: true
+      t.belongs_to :plant_group, null: false, foreign_key: true
 
       t.timestamps
     end
