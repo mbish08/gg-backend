@@ -1,2 +1,0 @@
-class PlantTypesController < ApplicationController
-end
