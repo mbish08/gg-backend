@@ -5,7 +5,7 @@ class CreatePlantTypes < ActiveRecord::Migration[6.1]
       t.text :fert_type
       t.text :fert_sched
       t.text :water
-      t.string :soil_ph
+      t.float :soil_ph
       t.text :soil_type
       t.text :misc_info
       t.belongs_to :plant_group, null: false, foreign_key: true
