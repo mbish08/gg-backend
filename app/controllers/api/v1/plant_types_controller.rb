@@ -18,7 +18,7 @@ class Api::V1::PlantTypesController < ApplicationController
         else
             render json: {error: 'Error creating new plant type'}
         end
-
+        # original - refactored to add group logic
         # @plant_type = PlantType.new(plant_type_params)
         # if @plant_type.save
         #     render json: @plant_type
