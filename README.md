@@ -1,4 +1,4 @@
-# README
+front end repo:  https://github.com/mbish08/gg-frontend
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
