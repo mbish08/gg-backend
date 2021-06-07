@@ -1,17 +1,30 @@
 class Api::V1::PlantTypesController < ApplicationController
     
+    before_action :set_plant_group
+
     def index
-        @plant_types = PlantTypes.all
+        if @plant_group
+            @plant_types = @plant_group.plant_types
+        else
+            @plant_types = PlantType.all
+        end
         render json: @plant_types
     end
 
     def create
-        @plant_type = PlantType.new(plant_type_params)
+        @plant_type = @plant_group.plant_types.build(plant_type_params)
         if @plant_type.save
             render json: @plant_type
         else
             render json: {error: 'Error creating new plant type'}
         end
+
+        # @plant_type = PlantType.new(plant_type_params)
+        # if @plant_type.save
+        #     render json: @plant_type
+        # else
+        #     render json: {error: 'Error creating new plant type'}
+        # end
     end
 
     def show
@@ -25,6 +38,10 @@ class Api::V1::PlantTypesController < ApplicationController
     end
 
     private
+
+    def set_plant_group
+        @plant_group = PlantGroup.find(params[:plant_group_id])
+    end
 
     def plant_type_params
         params.require(:plant_type).permit(:name, :fert_type, :fert_sched, :water, :soil_ph, :soil_type, :misc_info, :plant_group_id)
