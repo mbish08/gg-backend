@@ -1,13 +1,14 @@
 class Api::V1::PlantTypesController < ApplicationController
     
-    before_action :set_plant_group
+    # before_action :set_plant_group
 
     def index
-        if @plant_group
-            @plant_types = @plant_group.plant_types
-        else
+        # byebug
+        # if @plant_group
+        #     @plant_types = @plant_group.plant_types
+        # else
             @plant_types = PlantType.all
-        end
+        # end
         render json: @plant_types
     end
 
@@ -40,6 +41,7 @@ class Api::V1::PlantTypesController < ApplicationController
     private
 
     def set_plant_group
+        # byebug
         @plant_group = PlantGroup.find(params[:plant_group_id])
     end
 
