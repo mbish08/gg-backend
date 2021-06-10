@@ -1,6 +1,6 @@
 class Api::V1::PlantTypesController < ApplicationController
     
-    # before_action :set_plant_group
+    before_action :set_plant_group
 
     def index
         # byebug
