@@ -6,7 +6,7 @@ class Api::V1::PlantGroupsController < ApplicationController
     end
 
     def create
-        @plant_group = PlantGroup.new(plant_group_params)
+       @plant_group = PlantGroup.new(plant_group_params)
         if @plant_group.save
             render json: @plant_group
         else

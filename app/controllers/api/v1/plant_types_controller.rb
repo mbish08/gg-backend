@@ -15,7 +15,7 @@ class Api::V1::PlantTypesController < ApplicationController
     def create
         @plant_type = @plant_group.plant_types.build(plant_type_params)
         if @plant_type.save
-            render json: @plant_type
+            render json: @plant_group
         else
             render json: {error: 'Error creating new plant type'}
         end
