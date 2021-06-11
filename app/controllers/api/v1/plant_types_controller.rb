@@ -34,8 +34,10 @@ class Api::V1::PlantTypesController < ApplicationController
     end
 
     def destroy
-        @plant_type = PlantType.find(params[:id])
-        @plant_type.destroy
+        plant_type = PlantType.find(params[:id])
+        plant_group = PlantGroup.find(plant_type.plant_group_id)
+        plant_type.destroy
+        render json: plant_group
     end
 
     private
