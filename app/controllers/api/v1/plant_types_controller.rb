@@ -3,12 +3,7 @@ class Api::V1::PlantTypesController < ApplicationController
     before_action :set_plant_group
 
     def index
-        # byebug
-        # if @plant_group
-        #     @plant_types = @plant_group.plant_types
-        # else
-            @plant_types = PlantType.all
-        # end
+        @plant_types = PlantType.all
         render json: @plant_types
     end
 
@@ -19,13 +14,6 @@ class Api::V1::PlantTypesController < ApplicationController
         else
             render json: {error: 'Error creating new plant type'}
         end
-        # original - refactored to add group logic
-        # @plant_type = PlantType.new(plant_type_params)
-        # if @plant_type.save
-        #     render json: @plant_type
-        # else
-        #     render json: {error: 'Error creating new plant type'}
-        # end
     end
 
     def show
@@ -43,7 +31,6 @@ class Api::V1::PlantTypesController < ApplicationController
     private
 
     def set_plant_group
-        # byebug
         @plant_group = PlantGroup.find(params[:plant_group_id])
     end
 
